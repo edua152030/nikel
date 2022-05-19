@@ -6,17 +6,15 @@ let data = {
     transactions: []
 }
 
-document.getElementById("button-logout").addEventListener("click", logout);
-
 checkLogged();
 
-function logout(){
-    sessionStorage.removeItem("logged");
-        window.location.href= "index.html"
-};
+document.getElementById("button-logout").addEventListener("click", logout);
+document.getElementById('verTodas').addEventListener("click", function(){
+    window.location.href = "transactions.html";
+})
 
 //adicionando valores na home
-document.getElementById("transaction-modal").addEventListener("submit", function(e){
+document.getElementById("#transaction-modal").addEventListener("submit", function(e){
     e.preventDefault();
 
     const value = parseFloat(document.getElementById("value-input").value);
@@ -29,13 +27,12 @@ document.getElementById("transaction-modal").addEventListener("submit", function
         value: value, type: type, description: description, date: date
     })
 
-    saveData(data)
+    saveData(data);
     e.target.reset();
     myModal.hide();
 
     alert("lançamento adicionado");
-});
-
+})
 
 function checkLogged(){
 
@@ -55,8 +52,22 @@ function checkLogged(){
         data = JSON.parse(dataUser);
     }
 
-    getCacheshIn();
-    getCacheshOut();
-    getTotal();
-    console.log(data);
+   
 };
+
+
+//sair 
+function logout(){
+    sessionStorage.removeItem("logged");
+        window.location.href= "index.html"
+};
+
+//adicionar lancamento com usuário logado
+function saveData(data){
+    localStorage.setItem(data.login, JSON.stringify(data));
+};
+
+
+
+
+

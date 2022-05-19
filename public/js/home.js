@@ -1,6 +1,7 @@
 const myModal = new bootstrap.Modal("#transaction-modal");
 let logged = sessionStorage.getItem("logged");
 const session = localStorage.getItem("session");
+
 let data = {
     transactions: []
 }
@@ -59,7 +60,7 @@ function checkLogged(){
     getCacheshIn();
     getCacheshOut();
     getTotal();
-    console.log(data);
+   
 };
 
 
@@ -79,7 +80,7 @@ function getCacheshIn(){
 
     const cashIn = transactions.filter((item)=> item.type === "1");
 
-     console.log(cashIn);
+    
 
      if(cashIn.length){
          let cashInHtml = ``;
@@ -122,7 +123,7 @@ function getCacheshOut(){
 
     const cashIn = transactions.filter((item)=> item.type === "2");
 
-     console.log(cashIn);
+   
 
      if(cashIn.length){
          let cashInHtml = ``;
