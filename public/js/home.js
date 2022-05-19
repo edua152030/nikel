@@ -51,7 +51,6 @@ function checkLogged(){
         window.location.href= "index.html"
     }
 
-
     const dataUser = localStorage.getItem(logged)
     if(dataUser){
         data = JSON.parse(dataUser);
@@ -60,7 +59,6 @@ function checkLogged(){
     getCacheshIn();
     getCacheshOut();
     getTotal();
-   
 };
 
 
